@@ -1,26 +1,42 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    font-family: "Inter", sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    color-scheme: light;
+    /* note: must keep in sync with `theme-color` in `theme-effect.ts` */
+    @apply bg-[#fcfcfc];
+    background: #fcfcfc;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  :root.dark {
+    color-scheme: dark;
+    /* note: must keep in sync with `theme-color` in `theme-effect.ts` */
+    @apply bg-[#1C1C1C];
+  }
+
+  html {
+    transition: color 0.4s ease, background-color 0.4s ease;
+  }
+
+  body {
+    @apply bg-white text-slate-900;
+    transition: color 0.4s ease, background-color 0.4s ease;
+  }
+  .dark body {
+    @apply bg-[#1C1C1C] text-gray-100;
+  }
+
+  :root.pause-transitions * {
+    transition-duration: 0ms !important;
+  }
+
+  @supports (font-variation-settings: normal) {
+    :root {
+      font-family: "Inter var", sans-serif;
+    }
+  }
 }
