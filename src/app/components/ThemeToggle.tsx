@@ -9,7 +9,6 @@ export function ThemeToggle() {
   );
   const [currentTheme, setCurrentTheme] = useState<null | string>(null);
   const [isHovering, setIsHovering] = useState(false);
-  const [isHoveringOverride, setIsHoveringOverride] = useState(false);
 
   const onMediaChange = useCallback(() => {
     const current = themeEffect();
@@ -44,10 +43,6 @@ export function ThemeToggle() {
     return () => window.removeEventListener("storage", onStorageChange);
   });
 
-  const buttonBackground = currentTheme === "dark" ? "bg-[#313131]" : "bg-gray-200";
-
-  
-
   return (
     <>
       {isHovering && (
@@ -80,8 +75,6 @@ export function ThemeToggle() {
 		className="inline-flex items-center p-2 rounded-sm bg-gray-200 dark:bg-[#313131] text-black dark:text-white transition-all duration-300 hover:scale-105 hover:bg-gray-300 dark:hover:bg-[#242424] active:scale-95"
         onClick={ev => {
           ev.preventDefault();
-          // prevent the hover state from rendering
-          setIsHoveringOverride(true);
 
           let newPreference: string | null =
             currentTheme === "dark" ? "light" : "dark";
@@ -104,7 +97,6 @@ export function ThemeToggle() {
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => {
           setIsHovering(false);
-          setIsHoveringOverride(false);
         }}
       >
         {currentTheme === "dark" ? (
@@ -117,7 +109,7 @@ export function ThemeToggle() {
 		  );
 }
 
-function MoonIcon(props: any) {
+function MoonIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +128,7 @@ function MoonIcon(props: any) {
   );
 }
 
-function SunIcon(props: any) {
+function SunIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
