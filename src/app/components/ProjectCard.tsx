@@ -9,16 +9,18 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ title, description, technologies, link }: ProjectCardProps) {
   return (
-    <a href={link} target="_blank" rel="noopener noreferrer" className="block">
-      <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-6 h-full">
-        <h3 className="text-2xl font-semibold text-primary mb-2 dark:text-slate-900">{title}</h3>
-        <p className='dark:text-slate-900'>{description}</p>
+    <a href={link} target="_blank" rel="noopener noreferrer" className="block group">
+      <div className="border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-xl transition-all duration-300 p-8 h-full bg-white dark:bg-[#1C1C1C]">
+        <h3 className="text-2xl font-bold mb-3 group-hover:opacity-70 transition-opacity">{title}</h3>
+        <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">{description}</p>
 	    {technologies?.length && (
-		    <ul>
+		    <div className="flex flex-wrap gap-2 mt-4">
 		      {technologies.map((tech, index) => (
-		        <li key={index} className="dark:text-slate-900">{tech}</li>
+		        <span key={index} className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-sm rounded-full">
+					{tech}
+				</span>
 		      ))}
-		    </ul>
+		    </div>
 	    )}
       </div>
     </a>

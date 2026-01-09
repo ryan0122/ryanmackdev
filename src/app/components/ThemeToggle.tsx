@@ -44,35 +44,14 @@ export function ThemeToggle() {
   });
 
   return (
-    <>
-      {isHovering && (
-        <span
-          className={`
-            text-[9px]
-            text-gray-400
-            mr-[-5px]
-
-            /* mobile */
-            hidden
-
-            md:inline
-          `}
-        >
-          {preference === null
-            ? "System"
-            : preference === "dark"
-            ? "Dark"
-            : "Light"}
-        </span>
-      )}
-
+    <div className="relative">
       {/*
         the `theme-auto:` plugin is registered in `tailwind.config.js` and
         works similarly to the `dark:` prefix, which depends on the `theme-effect.ts` behavior
       */}
       <button
         aria-label="Toggle theme"
-		className="inline-flex items-center p-2 rounded-sm bg-gray-200 dark:bg-[#313131] text-black dark:text-white transition-all duration-300 hover:scale-105 hover:bg-gray-300 dark:hover:bg-[#242424] active:scale-95"
+		className="inline-flex items-center p-2 rounded-sm bg-gray-200 dark:bg-[#313131] text-black dark:text-white transition-all duration-300 hover:scale-105 hover:bg-gray-300 dark:hover:bg-[#242424] active:scale-95 focus-visible:outline-[#149eca]"
         onClick={ev => {
           ev.preventDefault();
 
@@ -104,9 +83,53 @@ export function ThemeToggle() {
 		  ) : (
 		    <MoonIcon />
 		  )}
-		      </button>
-		    </>
-		  );
+      </button>
+      
+      {isHovering && (
+        <span
+          className={`
+            absolute
+            top-full
+            left-1/2
+            -translate-x-1/2
+            mt-2
+            px-2
+            py-1
+            text-xs
+            text-white
+            dark:text-gray-900
+            bg-gray-900
+            dark:bg-gray-100
+            rounded
+            whitespace-nowrap
+            pointer-events-none
+            
+            /* mobile */
+            hidden
+            
+            md:block
+            
+            /* tooltip arrow */
+            after:content-['']
+            after:absolute
+            after:bottom-full
+            after:left-1/2
+            after:-translate-x-1/2
+            after:border-4
+            after:border-transparent
+            after:border-b-gray-900
+            dark:after:border-b-gray-100
+          `}
+        >
+          {preference === null
+            ? "System"
+            : preference === "dark"
+            ? "Dark"
+            : "Light"}
+        </span>
+      )}
+    </div>
+  );
 }
 
 function MoonIcon(props: React.SVGProps<SVGSVGElement>) {
