@@ -271,7 +271,7 @@ export default function Home() {
         {/* Contact Section */}
         <section id="contact" className="py-20 px-6 bg-gray-50 dark:bg-[#161616]">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">Let's Work Together</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">Let&apos;s Work Together</h2>
             <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
               Interested in collaborating or need accessibility expertise for your project?
             </p>
