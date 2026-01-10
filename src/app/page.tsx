@@ -1,6 +1,7 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ProjectCard from './components/ProjectCard';
+import { Link } from '@a11ypros/a11y-ui-components';
 
 export default function Home() {
   return (
@@ -14,12 +15,9 @@ export default function Home() {
             <h1 className="text-6xl md:text-8xl font-bold mb-4 tracking-tight">
               RYAN MACK
             </h1>
-            <h2 className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 uppercase tracking-wider">
+            <h2 className="text-xl md:text-2xl text-[#FF4A1C] uppercase tracking-wider">
               Senior UI Engineer & Accessibility SME
             </h2>
-            <p className="mt-6 text-gray-600 dark:text-gray-400">
-              Denver, Colorado, USA
-            </p>
           </div>
         </section>
 
@@ -226,12 +224,12 @@ export default function Home() {
             <div className="space-y-6">
               <div className="p-6 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-lg transition-shadow">
                 <h3 className="text-xl font-bold mb-2">
-                  <a href="https://www.credly.com/badges/bd860613-65b2-48bf-9150-b3dd9788934d/public_url" 
+                  <Link href="https://www.credly.com/badges/bd860613-65b2-48bf-9150-b3dd9788934d/public_url" 
                      className="hover:underline focus-visible:outline-[#149eca]"
                      target="_blank"
                      rel="noopener noreferrer">
                     IAAP Web Accessibility Specialist (WAS)
-                  </a>
+                  </Link>
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400">
                   International Association of Accessibility Professionals

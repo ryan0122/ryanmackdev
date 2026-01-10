@@ -10,6 +10,10 @@
     /* note: must keep in sync with `theme-color` in `theme-effect.ts` */
     @apply bg-[#fcfcfc];
     background: #fcfcfc;
+
+        /* design tokens overrides */
+    --color-primary-700: #149eca;
+    --color-primary-800: #0d4f6c;
   }
 
   :root.dark {
