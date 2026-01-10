@@ -9,7 +9,7 @@
     "lint": "NODE_OPTIONS= next lint"
   },
   "dependencies": {
-    "@a11ypros/a11y-ui-components": "^1.0.3",
+    "@a11ypros/a11y-ui-components": "^1.0.4",
     "i": "^0.3.7",
     "next": "16.1.1",
     "npm": "^11.7.0",
